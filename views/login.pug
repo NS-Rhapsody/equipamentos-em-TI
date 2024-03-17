@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  style.
+    .login-container, fieldset {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .login-container {
+      height: 100vh;
+    }
+
+    fieldset {
+      gap: 10px;
+      grid: auto;
+    }
+
+  .login-container
+    h1 Login
+
+    if error
+      p.error= error
+
+    form.pure-form.pure-form-stacked(action="/login", method="post")
+      fieldset
+        label(for="email") Email:
+        input.stacked-email(type="email", id="email", name="email", required)
+
+        label(for="senha") Senha:
+        input.stacked-password(type="password", id="senha", name="senha", required)
+
+        button.pure-button.pure-button-primary(type="submit") Entrar
+    footer 
+      P © 2024 Flávio Filho
